@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JavaScript DOM</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <p>Fun with <a id="a" href="#">Pangrams</a>.</p>
+    <p id="bold">The quick brown fox jumped over the lazy dog.</p>
+    <p class="b blue">Jaded zombies acted quaintly but kept driving their oxen forward.</p>
+    <blockquote class="a b">The five boxing wizards jump quickly.</blockquote>
+    <blockquote class="c">The five boxing wizards jump quickly.</blockquote>
+
+    <input name="email" type="email">
+    <script>
+        // by id
+        var elem = document.getElementById("a"); // Get the elements
+        elem.style = 'color: #FF0000;'; // change color to red
+
+        // by tag
+        var list = document.getElementsByTagName('blockquote'); // get all p elements
+        list[0].style = 'color: #FF0000;';
+
+        //by class
+        // get all elements of class a
+        var list = document.getElementsByClassName('b');
+
+        // Make it red
+        list[0].style = 'color: #FF0000;';
+
+        // get all elements of class a b
+        var list2 = document.getElementsByClassName('a b');
+
+        //Make them bold and apply the color from list[0]
+        list2[0].style = 'font-weight: bold; color:' + list[0].style.color;
+
+        // by name
+        //Get all elements with a name of a
+        var list = document.getElementsByName('c');
+
+        //Loop through all of the matching elements
+        for (var i = 0; i < list.length; i++) {
+            //change color
+            list[i].style = 'color: #FF00FF;';
+        }
+
+        // by CSS selector
+        //Find the element with an id of bold
+        var bold = document.querySelector('#bold');
+
+        //Make it bold
+        bold.style = 'font-weight: bold;';
+
+        //Find all elements with a class of blue
+        var blues = document.querySelectorAll('.blue');
+
+        //Loop through all of the matching elements
+        for (var i = 0; i < blues.length; i++) {
+            //Make them blue
+            blues[i].style = 'color: #0000FF;';
+        }
+    </script>
+
+</body>
+
+</html>

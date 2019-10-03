@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JavaScript Events</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        #demo5 {
+            background: #000;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+    <button id="GrowBtn">A button to grow</button><br><br>
+
+    <div id="demo5"></div><br>
+    <div id="demo"></div><br>
+    <div id="demo2"></div><br>
+    <div id="demo3"></div><br>
+
+    Inner HTML
+    <button onclick="document.getElementById('demo').innerHTML = Date()">What time is it?</button><br><br>
+    Script Function
+    <button onclick="showDate('demo2');">What time is it?</button><br><br>
+    Button Listener
+    <button id="time">What time is it?</button><br><br>
+    Arrow function
+    <button id="time2">What time is it?</button><br><br>
+    Options
+    <select id="options">
+        <option>--Pick an Option--</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+    </select><br>
+    you selected: <div id="demo4"></div><br>
+
+    <script>
+        function showDate(element) {
+            document.getElementById(element).innerHTML = Date();
+        }
+
+        // Function to add event listener to button #time
+        var btn = document.getElementById("time");
+        btn.addEventListener("click", function () {
+            showDate('demo3');
+        });
+
+        // Function to add event listener to button #time2
+        var btn = document.getElementById("time2");
+        btn.addEventListener("click", () => {
+            showDate('demo');
+        });
+
+        // options element
+        function setValue(element) {
+            let option = document.getElementById('options').value;
+            document.getElementById(element).innerHTML = option;
+        }
+
+        // Function to add event listener to button#option
+        var list = document.getElementById("options");
+        list.addEventListener("change", () => {
+            setValue('demo4')
+        });
+
+        // interval
+        function Grower() {
+            //Get current width of the target element
+            this.width = document.getElementById('demo5').offsetWidth;
+
+            //Set a counter to the current width
+            this.num = this.width
+
+            //Execute the counter on a set interval
+            this.timer = setInterval(() => {
+                //Increment the counter
+                this.num++;
+
+                //Add one pixel to the width of the target element
+                document.getElementById('demo5').style = 'width:' + this.num + 'px;';
+
+                //After fifty iterations, kill the loop.
+                if (this.num === this.width + 50) {
+                    clearInterval(this.timer);
+                }
+            }, 1);
+        }
+
+        // Function to add event listener to button#time
+        var btn = document.getElementById("GrowBtn");
+        btn.addEventListener("click", function () {
+            new Grower();
+        });
+    </script>
+
+</body>
+
+</html>

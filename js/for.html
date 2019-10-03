@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Loops</title>
+</head>
+
+<body>
+    <script>
+
+        // FOR LOOP
+        var items = [
+            'for',
+            'do...while',
+            'for...in',
+            'for...of'
+        ];
+
+        var msg = 'JavaScript supports ' + items.length + ' types of loop. FOR LOOP';
+
+        var li = '';
+        for (i = 0; i < items.length; i++) {
+            li += `<li>${items[i]}</li>`;
+        }
+
+        msg += `<ul>${li}</ul>`;
+        
+        // FOR IN
+        var items = {
+            0: 'for',
+            1: 'do...while',
+            2: 'for...in',
+            3: 'for...of'
+        };
+
+        var msg = 'JavaScript supports ' + Object.keys(items).length + ' types of loop. FOR IN';
+
+        var li = '';
+        for (var item in items) {
+            li += `<li>${items[item]}</li>`;
+        }
+
+        msg += `<ul>${li}</ul>`;
+
+        document.write(msg);
+
+        document.write(msg);
+
+        var items = [
+            'for',
+            'do...while',
+            'for...in',
+            'for...of'
+        ];
+
+        var msg = 'JavaScript supports ' + items.length + ' types of loop. FOR OF';
+
+        var li = '';
+        for (var item of items) {
+            li += `<li>${item}</li>`;
+        }
+
+        msg += `<ul>${li}</ul>`;
+
+        document.write(msg);
+
+        var items = [
+            'for',
+            'do...while',
+            'for...in',
+            'for...of'
+        ];
+
+        var msg = 'JavaScript supports ' + items.length + ' types of loop. WHILE';
+        var i = 0;
+        var li = '';
+        while (i < items.length) {
+            li += `<li>${items[i]}</li>`;
+            i++;
+        }
+
+        msg += `<ul>${li}</ul>`;
+
+        document.write(msg);
+
+        var items = [
+            'for',
+            'do...while statement',
+            'labeled statement',
+            'break statement',
+            'continue statement',
+            'for...in statement',
+            'for...of statement'
+        ];
+
+        var msg = 'JavaScript supports ' + items.length + ' types of loop. DO WHILE';
+        var i = 0;
+        var li = '';
+        do {
+            li += `<li>${items[i]}</li>`;
+            i++;
+        } while (i < items.length)
+
+        msg += `<ul>${li}</ul>`;
+
+        document.write(msg);
+    </script>
+</body>
+
+</html>
