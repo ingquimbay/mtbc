@@ -14,7 +14,7 @@ var game = (function () {
         dir: 'right',
         //13. Add a speed property to the player this is the number of pixels 
         //the player will move each frame
-        speed: 5
+        speed: 1
     }
 
     return {
@@ -25,16 +25,20 @@ var game = (function () {
 
             //3. Define how many pixels the player
             // should move each frame (i.e. speed)
-            ctx.clearRect(
-                player.x - player.speed,
-                player.y - 1,
-                player.w + 2,
-                player.h + 2
-            );
-
-            //7. Add x pixels to move the player to the right
             if (player.dir === 'right') {
+                ctx.clearRect(
+                    // Changed x-1 to player.x - player.speed
+                    player.x - player.speed,
+                    player.y - 1,
+                    player.w + 2,
+                    player.h + 2
+                );
+
+                //7. Add x pixels to move the player to the right
+
                 ctx.fillRect(
+
+                    // Changed player.x++ to player.x = (player.x + player.speed)
                     player.x = (player.x + player.speed),
                     player.y,
                     player.w,
@@ -49,9 +53,18 @@ var game = (function () {
 
             } else {
 
+                //14. Change player.x+1 to player.x+player.speed
+                ctx.clearRect(
+                    player.x + player.speed,
+                    player.y - 1,
+                    player.w + 2,
+                    player.h + 2
+                );
+
                 //9. Subtract x pixels to move the player to the left
+                // Changed player.x-- to player.x = (player.x - player.speed)
                 ctx.fillRect(
-                    player.x++,
+                    player.x = (player.x - player.speed),
                     player.y,
                     player.w,
                     player.h
