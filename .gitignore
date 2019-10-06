@@ -1,2 +1,5 @@
 #ignore dependency caches
 node_modules/
+
+#ignore JSON packages
+*.json
