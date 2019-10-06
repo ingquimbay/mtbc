@@ -1,5 +1,5 @@
-# html-starter
-A starter package for basic HTML projects
+# NASA Astronomy photo of the day
+An application to randomly retrieve an astronomy photo from NASA.
 
 ```sh
 cd /var/www
